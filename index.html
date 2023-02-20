@@ -6,10 +6,42 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JS3</title>
+  <style>
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+      width: 300px;
+      border: 1px solid black;
+    }
+
+    .wrapper input,
+    button,
+    label {
+      margin: 5px;
+    }
+
+    label {
+      height: 16px;
+      background-color: rgb(236, 236, 236);
+    }
+  </style>
 </head>
 
 <body>
-
+  <div class="wrapper">
+    <input type="text" id="capitalize-input" placeholder='Input your text...'>
+    <label id="capitalize-label">Result</label>
+    <button onclick="capitalize(document.getElementById('capitalize-input').value)">Capitalize</button>
+  </div>
+  <div class="wrapper">
+    <input type="text" id="truncate-input" placeholder='Input your text...'>
+    <input type="number" id="truncate-size" placeholder='Input max size...' value="4" min="4">
+    <label id="truncate-label">Result</label>
+    <button
+      onclick="truncate(document.getElementById('truncate-input').value, +getElementById('truncate-size').value)">Truncate</button>
+  </div>
+  <script src="./strings.js"></script>
 </body>
 
 </html>
