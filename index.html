@@ -11,18 +11,20 @@
       display: flex;
       flex-direction: column;
       padding: 5px;
+      margin: 15px;
       width: 300px;
       border: 1px solid black;
     }
 
     .wrapper input,
     button,
-    label {
+    label,
+    textarea {
       margin: 5px;
     }
 
     label {
-      height: 16px;
+      min-height: 16px;
       background-color: rgb(236, 236, 236);
     }
   </style>
@@ -30,18 +32,101 @@
 
 <body>
   <div class="wrapper">
-    <input type="text" id="capitalize-input" placeholder='Input your text...'>
+    <input type="text" id="capitalize-input" placeholder='Input your text...' value="my name is taras">
     <label id="capitalize-label">Result</label>
     <button onclick="capitalize(document.getElementById('capitalize-input').value)">Capitalize</button>
   </div>
   <div class="wrapper">
-    <input type="text" id="truncate-input" placeholder='Input your text...'>
-    <input type="number" id="truncate-size" placeholder='Input max size...' value="4" min="4">
+    <input type="text" id="truncate-input" placeholder='Input your text...'
+      value="Lorem ipsum dolor sit amet, consectetur">
+    <input type="number" id="truncate-size" placeholder='Input max size...' value="14" min="4">
     <label id="truncate-label">Result</label>
     <button
       onclick="truncate(document.getElementById('truncate-input').value, +getElementById('truncate-size').value)">Truncate</button>
   </div>
+  <div class="wrapper">
+    <input type="text" id="filter-input" placeholder='Input your array separeted by comma...'
+      value="1, 2, 3, 4, 5, 6, 7, 8, 9">
+    <input type="number" id="filter-size-1" placeholder='Input first number...' value="3" min="0">
+    <input type="number" id="filter-size-2" placeholder='Input second number...' value="7" min="1">
+    <label id="filter-label">Result</label>
+    <button
+      onclick="filterRange(document.getElementById('filter-input').value, +getElementById('filter-size-1').value, +getElementById('filter-size-2').value)">Filter
+      range</button>
+  </div>
+  <div class="wrapper">
+    <input type="text" id="sort-input" placeholder='Input your array separeted by comma...'
+      value="324, 32423, -3242, 544, 0, 23, -454, 22, 4">
+    <label id="sort-label">Result</label>
+    <button onclick="sortArr(document.getElementById('sort-input').value)">Sort array</button>
+  </div>
+  <div class="wrapper">
+    <input type="text" id="sort-length-input" placeholder='Input your array separeted by comma...'
+      value='"4534", "a", "bb", "sdfds", "", " ", "r4rdv-"'>
+    <label id="sort-length-label">Result</label>
+    <button onclick="sortLengthArr(document.getElementById('sort-length-input').value)">Sort array by length</button>
+  </div>
+  <div class="wrapper">
+    <textarea id="average-age-text" cols="30" rows="10">[
+      { name: "John", age: 25 },
+      { name: "Pete", age: 30 },
+      { name: "Mary", age: 29 },
+      { name: "Taras", age: 25 },
+      { name: "Kate", age: 74 },
+      { name: "Chris", age: 14 },
+      { name: "Alan", age: 5 },
+      { name: "Boris", age: 55 },
+      { name: "Elizabeth", age: 48 }
+    ]</textarea>
+    <label id="average-age-label">Result</label>
+    <button onclick="averageAge(document.getElementById('average-age-text').value)">Average age</button>
+  </div>
+  <div class="wrapper">
+    <textarea id="sort-user-text" cols="30" rows="10">[
+      { name: "John", age: 25 },
+      { name: "John", age: 5 },
+      { name: "John", age: 2 },
+      { name: "John", age: 45 },
+      { name: "Pete", age: 30 },
+      { name: "Mary", age: 29 },
+      { name: "Mary", age: 2 },
+      { name: "Taras", age: 25 },
+      { name: "Taras", age: 19 },
+      { name: "Kate", age: 74 },
+      { name: "Chris", age: 14 },
+      { name: "Alan", age: 5 },
+      { name: "Alan", age: 32 },
+      { name: "Boris", age: 55 },
+      { name: "Elizabeth", age: 48 },
+      { name: "Elizabeth", age: 8 }
+    ]</textarea>
+    <label id="sort-user-label">Result</label>
+    <button onclick="sortUsers(document.getElementById('sort-user-text').value)">Sort user by name and next by
+      name</button>
+  </div>
+  <div class="wrapper">
+    <textarea id="min-max-age-text" cols="30" rows="10">[
+      { name: "John", age: 25 },
+      { name: "Pete", age: 30 },
+      { name: "Mary", age: 29 },
+      { name: "Taras", age: 25 },
+      { name: "Kate", age: 74 },
+      { name: "Chris", age: 14 },
+      { name: "Alan", age: 5 },
+      { name: "Boris", age: 55 },
+      { name: "Elizabeth", age: 48 }
+    ]</textarea>
+    <label id="min-max-age-label">Result</label>
+    <button onclick="minMaxAge(document.getElementById('min-max-age-text').value)">Find min and max age</button>
+  </div>
+  <div class="wrapper">
+    <input type="text" id="unique-input" placeholder='Input your array separeted by comma...' value='Привіт, Світ, Привіт, Світ,
+      Привіт, Привіт, Світ, Світ, :-O'>
+    <label id="unique-label">Result</label>
+    <button onclick="unique(document.getElementById('unique-input').value)">Find min and max age</button>
+  </div>
   <script src="./strings.js"></script>
+  <script src="./arrays.js"></script>
 </body>
 
 </html>
